@@ -1,0 +1,1665 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base target="_top">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>سجل عقارك بدون عمولة - مباشر من المالك</title>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+/* Define CSS Variables for Colors */
+:root {
+  --primary-color: #007bff; /* Blue */
+  --secondary-color: #6c757d; /* Grey */
+  --success-color: #28a745; /* Green */
+  --danger-color: #dc3545; /* Red */
+  --warning-color: #ffc107; /* Yellow */
+  --info-color: #17a2b8; /* Cyan */
+  --light-bg: #f8f9fa; /* Light Background */
+  --white: #fff;
+  --dark: #343a40; /* Dark text/elements */
+  --border-color: #dee2e6;
+  --shadow-light: rgba(0, 0, 0, 0.08);
+  --shadow-medium: rgba(0, 0, 0, 0.12);
+  --shadow-input-focus: rgba(0, 123, 255, 0.3); /* ظل أزرق أفضل للتركيز */
+}
+
+body {
+  font-family: 'Tajawal', sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background-color: var(--light-bg);
+  color: var(--dark);
+  direction: rtl;
+  text-align: right;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 30px auto;
+  background-color: var(--white);
+  padding: 40px;
+  box-shadow: 0 8px 16px var(--shadow-medium);
+  border-radius: 12px;
+}
+
+/* Header Styling */
+.site-header {
+    position: relative;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white);
+    overflow: hidden;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 8px var(--shadow-light);
+}
+
+.header-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://png.pngtree.com/thumb_back/fh260/background/20230715/pngtree-image-title-luxurious-gold-house-in-real-estate-3d-rendered-illustration-image_3875759.jpg?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTQw4d8MHwxfHNlYXJjaHwyfHxmdXJuaXNoZWQlMjBhbGFwYXJ0bWVudCUyMGludGVyaW9yfGVufDB8fHx8MTcwNTU3MTEwMHww&ixlib=rb-4.0.3&q=80&w=1080');
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.5);
+    z-index: 1;
+}
+
+.header-content {
+    position: relative;
+    z-index: 2;
+    padding: 0 20px;
+    opacity: 1;
+    transform: translateY(0);
+    display: flex; /* استخدام فليكس بوكس لترتيب الأزرار */
+    flex-direction: column; /* ترتيب العناصر عمودياً في حال وجود أكثر من زر */
+    align-items: center; /* توسيط العناصر */
+    justify-content: center;
+    gap: 15px; /* مسافة بين الأزرار */
+}
+
+.site-header h1 {
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    color: var(--white);
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
+    font-weight: 700;
+    width: 100%; /* تأكد أن العنوان يأخذ العرض الكامل المتاح */
+}
+
+.site-header .subtitle {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+    color: #eee;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    font-weight: 400;
+    width: 100%; /* تأكد أن العنوان الفرعي يأخذ العرض الكامل المتاح */
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--warning-color);
+    color: var(--dark);
+    padding: 15px 35px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.3em;
+    font-weight: 700;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+     font-family: 'Tajawal', sans-serif; /* تطبيق الخط هنا أيضاً */
+}
+
+.cta-button:hover {
+  background-color: #e0a800;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* تنسيق الزر الجديد */
+.secondary-cta-button {
+    background-color: var(--primary-color); /* لون مختلف للزر الثاني */
+    color: var(--white);
+    /* margin-right: 15px; لم تعد ضرورية مع الفليكس بوكس والـ gap */
+}
+
+.secondary-cta-button:hover {
+  background-color: #0056b3;
+}
+
+
+/* Why Us Section */
+#why-us {
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+#why-us h2 {
+     color: var(--primary-color);
+     border-bottom: 3px solid var(--primary-color);
+     padding-bottom: 12px;
+     margin-bottom: 40px;
+     display: inline-block;
+     text-align: center;
+     width: auto;
+     font-weight: 700;
+}
+
+.features {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.feature-item {
+    flex-basis: 280px;
+    text-align: center;
+    padding: 25px;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    background-color: var(--white);
+    box-shadow: 0 4px 8px var(--shadow-light);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.feature-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px var(--shadow-medium);
+}
+
+
+.feature-item img {
+    margin-bottom: 20px;
+    width: 200px; /* تم تعديل حجم الصور هنا لتبدو كأيقونات */
+    height: 200px; /* تم تعديل حجم الصور هنا لتبدو كأيقونات */
+}
+
+.feature-item h3 {
+    color: var(--success-color);
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.3em;
+    font-weight: 700;
+}
+.feature-item p {
+    color: var(--secondary-color);
+    font-size: 1em;
+}
+
+
+.warning-brokers {
+    color: var(--danger-color);
+    font-size: 1.1em;
+    margin-top: 40px;
+    padding: 20px;
+    border: 2px dashed var(--danger-color);
+    border-radius: 8px;
+    background-color: #f8d7da;
+    font-weight: 700;
+}
+
+
+/* General Section Titles */
+h2 {
+  color: var(--primary-color);
+  border-bottom: 3px solid var(--primary-color);
+  padding-bottom: 12px;
+  margin-bottom: 30px;
+  text-align: right;
+  width: 100%;
+  box-sizing: border-box;
+  font-weight: 700;
+  font-size: 1.8em;
+}
+
+/* Property Listings Styling */
+#available-properties {
+    margin-bottom: 40px;
+}
+
+.property-listings {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.property-card {
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 20px;
+    background-color: var(--white);
+    box-shadow: 0 6px 15px var(--shadow-medium);
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+
+.property-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.property-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.property-card h3 {
+    margin-top: 0;
+    color: var(--primary-color);
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.property-card p {
+    margin: 5px 0;
+    color: var(--dark);
+    font-size: 1em;
+}
+
+.property-card .details {
+    font-size: 0.95em;
+    color: var(--secondary-color);
+    margin-top: auto;
+}
+
+.note {
+    display: block;
+    font-size: 0.9em;
+    color: var(--secondary-color);
+    margin-top: 5px;
+}
+
+
+/* Modal Styling */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.modal-overlay.show {
+  display: flex;
+  opacity: 1;
+}
+
+.modal-content {
+  background-color: var(--white);
+  padding: 40px;
+  border: none;
+  width: 95%;
+  max-width: 600px;
+  border-radius: 15px;
+  position: relative;
+  text-align: right;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  animation: animatezoom 0.4s;
+  box-sizing: border-box;
+  max-height: 90vh;
+  overflow-y: auto; /* سكرول داخل المحتوى */
+  -webkit-overflow-scrolling: touch;
+}
+
+/* لنستخدم position: absolute للتوسيط بدلاً من margin: auto ليكون أكثر استقراراً مع السكرول */
+/* تعديل على تنسيق modal-content */
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* توسيط دقيق */
+    margin: 0; /* إزالة ال margin */
+    /* باقي التنسيقات كما هي */
+    background-color: var(--white);
+    padding: 40px;
+    border: none;
+    width: 95%;
+    max-width: 600px;
+    border-radius: 15px;
+    text-align: right;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    /* إزالة animation هنا وتطبيقها على ال overlay */
+     max-height: 90vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+
+/* تأثير الحركة نطبقه على ال overlay نفسه عند إضافة class show */
+.modal-overlay.show .modal-content {
+     animation: animatezoom 0.4s forwards; /* تطبيق الأنيميشن عند ظهور ال overlay */
+}
+
+
+/* عنوان النافذة داخل محتوى النافذة */
+.modal-content h2 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 10px;
+    display: inline-block;
+    width: auto;
+    font-size: 1.7em;
+}
+
+
+/* تأثير الحركة */
+@keyframes animatezoom {
+  from {opacity: 0; transform: translate(-50%, -65%) scale(0.9);} /* بداية الحركة */
+  to {opacity: 1; transform: translate(-50%, -50%) scale(1);} /* نهاية الحركة */
+}
+
+
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  color: var(--secondary-color);
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+  color: var(--dark);
+}
+
+/* --- تحسين تنسيقات عناصر النموذج --- */
+
+/* تحسين حقول الإدخال النصية، البريد الإلكتروني، المساحات النصية، والقوائم المنسدلة */
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="number"], /* Added style for number input */
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 14px; /* padding أكبر قليلاً */
+  border: 1px solid var(--border-color);
+  border-radius: 8px; /* حواف دائرية أكثر */
+  box-sizing: border-box;
+  font-size: 1.05em; /* حجم خط أكبر قليلاً */
+  font-family: 'Tajawal', sans-serif;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  background-color: var(--white); /* خلفية بيضاء واضحة */
+}
+
+/* تحسين حالة التركيز */
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="number"]:focus, /* Added style for number input */
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 10px var(--shadow-input-focus); /* ظل تركيز أفضل */
+    outline: none;
+    background-color: #fff; /* تأكيد أن الخلفية بيضاء عند التركيز */
+}
+
+/* تحسين مظهر حقل رفع الملفات */
+/* هذا صعب التنسيق مباشرة، سنستخدم تنسيقات للمجموعة المحيطة به */
+.form-group input[type="file"] {
+   padding: 12px 0; /* تبقى كما هي أو تعدل حسب الحاجة */
+}
+
+/* تحسين مجموعة مربعات الاختيار */
+.checkbox-group {
+    margin-top: 12px; /* مسافة أكبر قليلاً */
+    margin-bottom: 20px; /* مسافة أكبر بعد المجموعة */
+    padding: 15px; /* padding أكبر */
+    border: 1px solid var(--border-color);
+    border-radius: 8px; /* حواف دائرية للمجموعة */
+    background-color: var(--light-bg); /* خلفية فاتحة للمجموعة */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); /* عرض أدنى أكبر */
+    gap: 12px; /* مسافة أكبر بين الاختيارات */
+}
+
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    font-weight: normal;
+    font-size: 1em;
+    color: var(--dark);
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+.checkbox-group label:hover {
+    color: var(--primary-color); /* تغيير لون النص عند المرور */
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin-left: 8px;
+    margin-right: 0;
+    cursor: pointer;
+    /* تنسيق مربع الاختيار نفسه يتطلب طرق متقدمة أو مكتبات */
+    /* نعتمد هنا على التنسيق الافتراضي للمتصفح */
+}
+
+/* تحسين تنسيق الليبل الصغير */
+.form-group .small-label {
+    font-size: 0.95em; /* حجم أكبر قليلاً */
+    font-weight: normal;
+    margin-top: 15px;
+    margin-bottom: 8px; /* مسافة أكبر */
+    color: var(--secondary-color);
+}
+
+/* تحسين تنسيق زر الإرسال */
+button[type="submit"] {
+  display: block;
+  width: 100%;
+  background-color: var(--success-color);
+  color: var(--white);
+  padding: 16px 20px; /* padding أكبر للزر */
+  border: none;
+  border-radius: 8柜px; /* حواف دائرية أكثر */
+  cursor: pointer;
+  font-size: 1.2em;
+  margin-top: 30px; /* مسافة أكبر فوق الزر */
+  transition: background-color 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
+  font-family: 'Tajawal', sans-serif;
+  font-weight: 700;
+   box-shadow: 0 4px 8px rgba(40, 167, 69, 0.3); /* ظل للزر الأخضر */
+}
+
+button[type="submit"]:hover:not(:disabled) {
+  background-color: #218838;
+   box-shadow: 0 6px 12px rgba(40, 167, 69, 0.4);
+}
+button[type="submit"]:disabled {
+    background-color: #a3d3af;
+    cursor: not-allowed;
+    opacity: 0.8;
+    box-shadow: none;
+}
+
+/* تنسيق رسائل الحالة داخل النموذج (أثناء الكتابة/التحقق) */
+.message { /* تم تغيير من #formMessage ليكون عاماً لجميع نماذج الرسائل */
+    margin-top: 25px; /* مسافة أكبر */
+    padding: 12px; /* padding أكبر */
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1em; /* حجم خط أفضل */
+}
+/* ألوان الرسائل تبقى كما هي */
+.message.success { /* تم تغيير من #formMessage.success */
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+.message.error { /* تم تغيير من #formMessage.error */
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+
+/* تنسيق رسائل النافذة المنبثقة الرئيسية (بعد الإرسال) */
+#messageModal .modal-content {
+    text-align: center;
+    max-width: 400px;
+    padding: 30px;
+}
+
+#messageModal .modal-message {
+    margin-bottom: 25px;
+    font-size: 1.2em;
+    line-height: 1.8;
+    font-weight: 700;
+    text-align: center;
+}
+
+#messageModal .modal-message.success {
+    color: var(--success-color);
+}
+
+#messageModal .modal-message.error {
+    color: var(--danger-color);
+}
+
+.modal-ok-button {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+    font-family: 'Tajawal', sans-serif;
+    font-weight: 700;
+    display: block;
+    width: 100%;
+    max-width: 200px;
+    margin: 20px auto 0 auto;
+}
+.modal-ok-button:hover {
+    background-color: #0056b3;
+}
+
+/* Hide dynamic form groups initially in the property form */
+.dynamic-form-group {
+    display: none;
+}
+
+/* Hide the request modal initially */
+#requestModal {
+    display: none;
+}
+
+/* تنسيق خاص لحقول الأرقام في نموذج الطلب لتكون أصغر قليلاً */
+#requestForm input[type="number"] {
+    width: auto; /* لا تجعلها بعرض 100% */
+    display: inline-block; /* عرضها جنباً إلى جنب إذا أمكن */
+    max-width: 100px; /* حد أقصى للعرض */
+    margin-left: 10px; /* مسافة عن الليبل */
+}
+
+#requestForm .form-group .small-label {
+    display: inline-block; /* لتكون بجانب حقل الرقم */
+    margin-left: 5px; /* مسافة عن الحقل التالي */
+    margin-bottom: 0; /* إزالة المسافة السفلية */
+    font-weight: normal; /* تأكيد الوزن الطبيعي للخط */
+    font-size: 0.95em; /* تأكيد حجم الخط */
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .site-header {
+      height: 300px;
+  }
+  .site-header h1 {
+    font-size: 1.8em;
+  }
+  .site-header .subtitle {
+    font-size: 1em;
+  }
+   .cta-button {
+     padding: 8px 15px;
+     font-size: 0.9em;
+   }
+   .header-content {
+      gap: 10px; /* مسافة أقل بين الأزرار في الشاشات الصغيرة */
+   }
+
+  .container {
+    padding: 10px;
+     margin: 10px auto;
+     box-shadow: none;
+  }
+   #why-us h2 {
+       margin-bottom: 15px;
+       font-size: 1.4em;
+   }
+   .features {
+       gap: 15px;
+   }
+   .feature-item {
+       padding: 10px;
+   }
+   .feature-item h3 {
+       font-size: 1.1em;
+   }
+    .feature-item p {
+        font-size: 0.9em;
+    }
+
+   h2 {
+       font-size: 1.3em;
+       margin-bottom: 15px;
+   }
+
+   /* Form responsive adjustments */
+   .form-group {
+       margin-bottom: 15px;
+   }
+    .form-group label {
+        font-size: 1em;
+        margin-bottom: 5px;
+    }
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group input[type="number"],
+    .form-group textarea,
+    .form-group select {
+        padding: 10px; /* padding أقل في الشاشات الصغيرة */
+        font-size: 1em;
+    }
+     .checkbox-group {
+         grid-template-columns: 1fr;
+         gap: 5px;
+         padding: 5px;
+     }
+      .checkbox-group label {
+          font-size: 0.95em;
+      }
+    button[type="submit"] {
+        padding: 12px 15px; /* padding أقل للزر */
+        font-size: 1.1em;
+        margin-top: 20px;
+    }
+    .message { /* تم تغيير من #formMessage */
+        padding: 10px;
+        font-size: 0.9em;
+    }
+
+
+   #image-preview img {
+       width: 70px;
+       height: 70px;
+   }
+
+   hr {
+       margin: 25px 0;
+   }
+
+   .property-listings {
+       gap: 15px;
+   }
+
+   .property-card {
+       padding: 15px;
+   }
+   .property-card img {
+       height: 140px;
+   }
+   .property-card h3 {
+       font-size: 1.1em;
+   }
+    .property-card p {
+        font-size: 0.85em;
+    }
+
+   /* Modal responsive adjustments */
+   .modal-overlay {
+       padding: 10px;
+   }
+   .modal-content {
+       width: 100%;
+       padding: 15px;
+       max-width: none;
+   }
+    .modal-content h2 {
+        font-size: 1.3em;
+        margin-bottom: 15px;
+    }
+   .modal-close {
+       top: 10px;
+       right: 10px;
+       font-size: 24px;
+   }
+    #messageModal .modal-content {
+         max-width: 300px;
+         padding: 20px;
+     }
+     #requestForm input[type="number"] {
+         max-width: 80px; /* حد أقصى أقل للشاشات الصغيرة */
+     }
+
+
+}
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-background"></div>
+    <div class="header-content">
+      <h1>ابحث عن منزل أحلامك أو بِع عقارك بسهولة</h1>
+      <p class="subtitle">منصة تربط المالك بالمشتري مباشرةً - <strong>لا عمولات، لا وسطاء!</strong></p>
+      <button id="showFormModalBtn" class="cta-button">سجّل عقارك الآن</button>
+      <button id="showRequestModalBtn" class="cta-button secondary-cta-button">سجّل طلبك العقاري</button>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <section id="why-us">
+      <h2>لماذا تسجل عقارك معنا؟</h2>
+      <div class="features">
+        <div class="feature-item">
+          <img src="ChatGPT_Image_May_6__2025__03_08_10_PM-removebg-preview.png" alt="بدون عمولة">
+          <h3>بدون عمولات</h3>
+          <p>اعرض عقارك وتواصل مع المشترين المحتملين دون دفع أي عمولات إضافية.</p>
+        </div>
+         <div class="feature-item">
+           <img src="ChatGPT_Image_May_6__2025__03_05_19_PM-removebg-preview.png" alt="تواصل مباشر">
+          <h3>تواصل مباشر</h3>
+          <p>تواصل مباشرة مع المشترين الجادين دون الحاجة لوسطاء.</p>
+        </div>
+         <div class="feature-item">
+           <img src="Flux_Dev_A_realistic_3D_globe_with_floating_social_media_icons_2-removebg-preview.png" alt="وصول واسع">
+          <h3>وصول واسع</h3>
+          <p>عقارك سيصل لآلاف الباحثين المهتمين يومياً.</p>
+        </div>
+        <div class="feature-item">
+           <img src="ChatGPT_Image_May_6__2025__04_10_22_PM-removebg-preview.png" alt="عملية سريعة">
+          <h3>عملية سريعة</h3>
+          <p>قلّل الوقت اللازم للبيع أو الإيجار بتواصل مباشر وسريع.</p>
+        </div>
+         <div class="feature-item">
+           <img src="ChatGPT_Image_May_6__2025__04_28_05_PM-removebg-preview.png" alt="قيمة أفضل">
+          <h3>قيمة أفضل</h3>
+          <p>احتفظ بكامل قيمة عقارك بدون اقتطاع عمولات.</p>
+        </div>
+         <div class="feature-item">
+           <img src="Leonardo_Phoenix_10_A_realistic_3D_icon_of_a_transparent_moder_0-removebg-preview.png" alt="شفافية كاملة">
+          <h3>شفافية كاملة</h3>
+          <p>تحكم في معلومات عقارك وقرارات البيع أو الإيجار بنفسك.</p>
+        </div>
+        </div>
+       <p class="warning-brokers"><strong>تنبيه هام:</strong> المنصة مخصصة للملاك فقط. سيتم حذف أي إعلان يتبين أنه لم يسجله المالك مباشرة.</p>
+    </section>
+
+    <hr>
+
+    <section id="available-properties">
+      <h2>العقارات المتاحة حالياً (مباشر من المالك)</h2>
+      <div id="propertyListings" class="property-listings">
+        <p>جاري تحميل العقارات المتاحة...</p>
+      </div>
+    </section>
+
+  </div>
+
+  <div id="formModal" class="modal-overlay">
+    <div class="modal-content">
+      <span class="modal-close">×</span>
+      <h2>سجل بيانات عقارك</h2>
+      <form id="propertyForm">
+        <div class="form-group">
+          <label for="propertyPurpose">الغرض من العقار:</label>
+          <select id="propertyPurpose" name="propertyPurpose" required>
+            <option value="">اختر الغرض</option>
+            <option value="للبيع">للبيع</option>
+            <option value="للإيجار">للإيجار</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="propertyType">نوع العقار:</label>
+          <select id="propertyType" name="propertyType" required>
+            <option value="">اختر نوع العقار</option>
+            <option value="شقة">شقة</option>
+            <option value="دوبلكس">دوبلكس</option>
+            <option value="فيلا">فيلا</option>
+            <option value="عمارة">عمارة</option>
+            <option value="ارض">أرض</option>
+            <option value="استراحة">استراحة</option>
+            <option value="مزرعة">مزرعة</option>
+            <option value="تجاري">تجاري</option>
+            <option value="اخرى">أخرى</option>
+          </select>
+        </div>
+
+        <div id="roomsBathroomsGroup" class="form-group dynamic-form-group">
+            <div class="form-group">
+                <label for="numberOfRooms">عدد الغرف:</label>
+                 <input type="number" id="numberOfRooms" name="numberOfRooms" min="0" placeholder="مثال: 5">
+            </div>
+             <div class="form-group">
+                <label for="numberOfBathrooms">عدد الحمامات:</label>
+                 <input type="number" id="numberOfBathrooms" name="numberOfBathrooms" min="0" placeholder="مثال: 3">
+            </div>
+        </div>
+
+        <div id="floorsGroup" class="form-group dynamic-form-group">
+             <div class="form-group">
+                <label for="numberOfFloors">عدد الطوابق:</label>
+                 <input type="number" id="numberOfFloors" name="numberOfFloors" min="0" placeholder="مثال: 4">
+            </div>
+        </div>
+
+
+        <div class="form-group">
+          <label for="priceRange">نطاق السعر المطلوب:</label>
+          <input type="text" id="priceRange" name="priceRange" placeholder="مثال: 500,000 - 600,000 ريال (للبيع) أو 30,000 - 40,000 ريال/سنة (للإيجار)" required>
+        </div>
+
+         <div class="form-group">
+          <label for="age">عمر العقار:</label>
+          <input type="text" id="age" name="age" placeholder="مثال: جديد، 5 سنوات، 10 سنوات" required>
+        </div>
+
+        <div class="form-group">
+          <label for="area">المساحة (متر مربع):</label>
+          <input type="text" id="area" name="area" placeholder="مثال: 250" required>
+        </div>
+
+        <div class="form-group">
+          <label for="propertyLocation">موقع العقار:</label>
+          <input type="text" id="propertyLocation" name="propertyLocation" placeholder="ادخل وصفاً للموقع أو رابط خرائط جوجل">
+          <small class="note">لجعل تحديد الموقع بالخريطة ممكناً، يتطلب دمج Google Maps API وهو يتطلب مفتاح API وقد يكون له تكلفة حسب الاستخدام.</small>
+        </div>
+
+
+        <div class="form-group">
+          <label>مكونات العقار ومميزاته:</label>
+          <div class="checkbox-group">
+            <label><input type="checkbox" name="propertyFeatures[]" value="مؤثثة"> مؤثثة</label>
+            <label><input type="checkbox" name="propertyFeatures[]" value="مكيفات راكبة"> مكيفات راكبة</label>
+            <label><input type="checkbox" name="propertyFeatures[]" value="موقف سيارة"> موقف سيارة</label>
+            <label><input type="checkbox" name="propertyFeatures[]" value="حديقة"> حديقة</label>
+             <label><input type="checkbox" name="propertyFeatures[]" value="مسبح"> مسبح</label>
+            <label><input type="checkbox" name="propertyFeatures[]" value="قريب من الخدمات"> قريب من الخدمات</label>
+            <label><input type="checkbox" name="propertyFeatures[]" value="إطلالة مميزة"> إطلالة مميزة</label>
+            <label><input type="checkbox" name="propertyFeatures[]" value="مصعد"> مصعد</label>
+            <label><input type="checkbox" name="propertyFeatures[]" value="قبو"> قبو</label>
+             <label><input type="checkbox" name="propertyFeatures[]" value="ملحق خارجي"> ملحق خارجي</label>
+            </div>
+          <label for="otherComponents" class="small-label">ميزات إضافية (اختياري):</label>
+          <textarea id="otherComponents" name="otherComponents" rows="2" placeholder="أي تفاصيل أخرى..."></textarea>
+        </div>
+
+
+        <div class="form-group">
+          <label for="contactInfo">وسيلة التواصل (رقم هاتف أو بريد إلكتروني):</label>
+          <input type="text" id="contactInfo" name="contactInfo" placeholder="مثال: 050xxxxxxx أو email@example.com" required>
+           <small class="note">هذه المعلومات لن يتم عرضها للمشترين مباشرة. سنتواصل معك عبرها بعد تسجيل العقار.</small>
+        </div>
+
+        <div class="form-group">
+          <label for="propertyImages">صور العقار (بحد أقصى 3 صور):</label>
+          <input type="file" id="propertyImages" name="files" accept="image/*" multiple>
+          <div id="image-preview"></div>
+        </div>
+
+        <button type="submit">إرسال بيانات العقار</button>
+
+      </form>
+      <div id="formMessage" class="message"></div>
+       <button class="modal-ok-button" id="formModalCloseBtnAfterSubmit" style="display: none;">إغلاق</button>
+    </div>
+  </div>
+
+  <div id="requestModal" class="modal-overlay">
+    <div class="modal-content">
+      <span class="modal-close">×</span>
+      <h2>سجل طلبك العقاري (شراء أو إيجار)</h2>
+      <form id="requestForm">
+        <div class="form-group">
+          <label for="requestPurpose">أبحث عن:</label>
+          <select id="requestPurpose" name="requestPurpose" required>
+            <option value="">اختر الغرض من البحث</option>
+            <option value="شراء">شراء</option>
+            <option value="إيجار">إيجار</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="requestPropertyType">نوع العقار المطلوب:</label>
+          <select id="requestPropertyType" name="requestPropertyType" required>
+            <option value="">اختر نوع العقار</option>
+            <option value="شقة">شقة</option>
+            <option value="دوبلكس">دوبلكس</option>
+            <option value="فيلا">فيلا</option>
+            <option value="عمارة">عمارة</option>
+            <option value="ارض">أرض</option>
+            <option value="استراحة">استراحة</option>
+            <option value="مزرعة">مزرعة</option>
+            <option value="تجاري">تجاري</option>
+            <option value="اخرى">أخرى</option>
+             <option value="لا يهم">لا يهم</option> </select>
+        </div>
+
+        <div class="form-group">
+          <label for="requestLocation">الموقع المطلوب:</label>
+          <input type="text" id="requestLocation" name="requestLocation" placeholder="مثال: حي الروضة، أو عدة أحياء، أو مدينة محددة" required>
+        </div>
+
+        <div class="form-group">
+          <label for="requestBudget">الميزانية / نطاق السعر:</label>
+          <input type="text" id="requestBudget" name="requestBudget" placeholder="مثال: 800,000 - 900,000 ريال (شراء) أو 40,000 - 50,000 ريال/سنة (إيجار)" required>
+        </div>
+
+         <div class="form-group">
+          <label for="requestArea">المساحة المطلوبة (اختياري):</label>
+          <input type="text" id="requestArea" name="requestArea" placeholder="مثال: 300 م²">
+        </div>
+
+        <div class="form-group">
+             <label>المواصفات المطلوبة (اختياري):</label>
+             <div class="form-group">
+                <label for="requestRooms" class="small-label">عدد الغرف:</label>
+                 <input type="number" id="requestRooms" name="requestRooms" min="0" placeholder="مثال: 4">
+            </div>
+             <div class="form-group">
+                <label for="requestBathrooms" class="small-label">عدد الحمامات:</label>
+                 <input type="number" id="requestBathrooms" name="requestBathrooms" min="0" placeholder="مثال: 3">
+            </div>
+             <div class="form-group">
+                <label for="requestFloors" class="small-label">عدد الطوابق (للعمارات):</label>
+                 <input type="number" id="requestFloors" name="requestFloors" min="0" placeholder="مثال: 5">
+            </div>
+         </div>
+
+
+        <div class="form-group">
+          <label for="requestNotes" class="small-label">ملاحظات أو متطلبات إضافية (اختياري):</label>
+          <textarea id="requestNotes" name="requestNotes" rows="3" placeholder="مثال: أرغب في عقار بواجهة شمالية، أو قريب من مدرسة معينة..."></textarea>
+        </div>
+
+
+        <div class="form-group">
+          <label for="requestContactInfo">وسيلة التواصل (رقم هاتف أو بريد إلكتروني):</label>
+          <input type="text" id="requestContactInfo" name="requestContactInfo" placeholder="مثال: 050xxxxxxx أو email@example.com" required>
+           <small class="note">سنستخدم هذه المعلومات للتواصل معك بشأن طلبك.</small>
+        </div>
+
+
+        <button type="submit">إرسال الطلب</button>
+
+      </form>
+      <div id="requestMessage" class="message"></div>
+       <button class="modal-ok-button" id="requestModalCloseBtnAfterSubmit" style="display: none;">إغلاق</button>
+    </div>
+  </div>
+
+  <div id="messageModal" class="modal-overlay">
+    <div class="modal-content">
+      <span class="modal-close">×</span>
+      <div class="modal-message"></div>
+      <button class="modal-ok-button" id="messageModalOkBtn">موافق</button>
+    </div>
+  </div>
+
+
+  <script>
+// عند تحميل الصفحة بالكامل
+document.addEventListener('DOMContentLoaded', function() {
+
+  // --- Get Element References ---
+
+  // Get references for the property submission form elements and property listing area
+  const propertyForm = document.getElementById('propertyForm');
+  const propertyListingsDiv = document.getElementById('propertyListings');
+  const imageInput = document.getElementById('propertyImages');
+  const imagePreviewDiv = document.getElementById('image-preview');
+  const showFormModalBtn = document.getElementById('showFormModalBtn'); // Button to open property form modal
+
+  // Get references for the property submission form dynamic fields
+  const propertyTypeSelect = document.getElementById('propertyType');
+  const roomsBathroomsGroup = document.getElementById('roomsBathroomsGroup');
+  const floorsGroup = document.getElementById('floorsGroup');
+  // Note: propertyPurpose field is collected via FormData
+
+  // Get references for the new request form elements
+  const showRequestModalBtn = document.getElementById('showRequestModalBtn'); // Button to open request form modal
+  const requestModal = document.getElementById('requestModal'); // The new request modal overlay
+  const requestForm = document.getElementById('requestForm'); // The new request form
+  const requestMessageDiv = document.getElementById('requestMessage'); // Message area in the new form
+  const requestModalCloseButton = requestModal ? requestModal.querySelector('.modal-close') : null; // Close button (X) in request modal
+  const requestModalCloseBtnAfterSubmit = document.getElementById('requestModalCloseBtnAfterSubmit'); // Close button (OK) after submission in request modal
+
+  // Get references for the general modal elements (not specific forms)
+  const formModal = document.getElementById('formModal'); // The property form modal overlay
+  const messageModal = document.getElementById('messageModal'); // The general message modal overlay
+
+  // Elements inside the property form modal
+  const formModalCloseButton = formModal ? formModal.querySelector('.modal-close') : null; // Close button (X) in property form modal
+  const formModalCloseBtnAfterSubmit = document.getElementById('formModalCloseBtnAfterSubmit'); // Close button (OK) after submission in property form modal
+  const formMessageDiv = document.getElementById('formMessage'); // Message area in the property form
+
+  // Elements inside the general message modal
+  const messageModalCloseButton = messageModal ? messageModal.querySelector('.modal-close') : null; // Close button (X) in message modal
+  const messageModalMessageDiv = messageModal ? messageModal.querySelector('.modal-message') : null; // Message area in message modal
+  const messageModalOkButton = document.getElementById('messageModalOkBtn'); // OK button in message modal
+
+
+  // --- Basic Modal Show/Hide Functions ---
+  // Added checks to ensure elements exist before trying to use them
+  function showModal(modalElement) {
+      if (modalElement) {
+          modalElement.classList.add('show');
+      } else {
+          console.error('Modal element not found!');
+      }
+  }
+
+  function hideModal(modalElement) {
+      if (modalElement) {
+          modalElement.classList.remove('show');
+      } else {
+          console.error('Modal element not found!');
+      }
+  }
+
+  // Specific show/hide functions for clarity
+  function showFormModal() {
+      showModal(formModal);
+      // Reset form and messages
+      if (propertyForm) propertyForm.reset();
+      if (imagePreviewDiv) imagePreviewDiv.innerHTML = '';
+      if (formMessageDiv) {
+        formMessageDiv.textContent = '';
+        formMessageDiv.className = 'message';
+      }
+       // Hide the "close after submit" button initially
+      if (formModalCloseBtnAfterSubmit) formModalCloseBtnAfterSubmit.style.display = 'none';
+       // Show and enable the submit button
+       const submitButton = propertyForm ? propertyForm.querySelector('button[type="submit"]') : null;
+       if(submitButton) {
+         submitButton.style.display = 'block';
+         submitButton.disabled = false;
+         submitButton.textContent = 'إرسال بيانات العقار';
+       }
+       // Hide all dynamic field groups when opening the form
+       hideDynamicFields();
+  }
+
+  function hideFormModal() {
+      hideModal(formModal);
+  }
+
+  function showRequestModal() {
+      showModal(requestModal);
+      // Reset form and messages
+      if (requestForm) requestForm.reset();
+      if (requestMessageDiv) {
+        requestMessageDiv.textContent = '';
+        requestMessageDiv.className = 'message';
+      }
+       // Hide the "close after submit" button initially
+       if (requestModalCloseBtnAfterSubmit) requestModalCloseBtnAfterSubmit.style.display = 'none';
+       // Show and enable the submit button
+       const submitButton = requestForm ? requestForm.querySelector('button[type="submit"]') : null;
+       if(submitButton) {
+         submitButton.style.display = 'block';
+         submitButton.disabled = false;
+         submitButton.textContent = 'إرسال الطلب';
+       }
+  }
+
+  function hideRequestModal() {
+      hideModal(requestModal);
+  }
+
+  function showMessageModal(message, type) {
+      if (messageModalMessageDiv) {
+        messageModalMessageDiv.textContent = message;
+        messageModalMessageDiv.className = 'modal-message ' + (type === 'success' ? 'success' : 'error');
+      }
+      showModal(messageModal);
+  }
+
+  function hideMessageModal() {
+      hideModal(messageModal);
+  }
+
+
+  // --- Event Listeners for Modals ---
+
+  // Open property form modal
+  if (showFormModalBtn) showFormModalBtn.addEventListener('click', showFormModal);
+
+  // Close property form modal
+  if (formModalCloseButton) formModalCloseButton.addEventListener('click', hideFormModal);
+  if (formModalCloseBtnAfterSubmit) formModalCloseBtnAfterSubmit.addEventListener('click', hideFormModal);
+  if (formModal) {
+      formModal.addEventListener('click', function(e) {
+          if (e.target === formModal) {
+              hideFormModal();
+          }
+      });
+  }
+
+  // Open request form modal
+  if (showRequestModalBtn) showRequestModalBtn.addEventListener('click', showRequestModal);
+
+  // Close request form modal
+   if (requestModalCloseButton) requestModalCloseButton.addEventListener('click', hideRequestModal);
+   if (requestModalCloseBtnAfterSubmit) requestModalCloseBtnAfterSubmit.addEventListener('click', hideRequestModal);
+   if (requestModal) {
+      requestModal.addEventListener('click', function(e) {
+          if (e.target === requestModal) {
+              hideRequestModal();
+          }
+      });
+   }
+
+
+  // Close general message modal
+  if (messageModalCloseButton) messageModalCloseButton.addEventListener('click', hideMessageModal);
+  if (messageModalOkButton) messageModalOkButton.addEventListener('click', hideMessageModal);
+   if (messageModal) {
+      messageModal.addEventListener('click', function(e) {
+          if (e.target === messageModal) {
+              hideMessageModal();
+          }
+      });
+   }
+
+
+  // --- Dynamic Form Fields Logic for Property Submission ---
+
+  // دالة لإخفاء جميع الحقول الديناميكية في نموذج تسجيل العقار
+  function hideDynamicFields() {
+      if (roomsBathroomsGroup) {
+        roomsBathroomsGroup.style.display = 'none';
+        roomsBathroomsGroup.querySelectorAll('input').forEach(input => input.required = false);
+        roomsBathroomsGroup.querySelectorAll('input').forEach(input => input.value = ''); // مسح القيم
+      }
+      if (floorsGroup) {
+        floorsGroup.style.display = 'none';
+        floorsGroup.querySelectorAll('input').forEach(input => input.required = false);
+        floorsGroup.querySelectorAll('input').forEach(input => input.value = ''); // مسح القيم
+      }
+  }
+
+  // دالة لعرض الحقول الديناميكية المناسبة بناءً على نوع العقار المختار في نموذج تسجيل العقار
+  function toggleDynamicFields() {
+      hideDynamicFields(); // إخفاء الكل أولاً
+
+      const selectedType = propertyTypeSelect ? propertyTypeSelect.value : ''; // Add check
+
+      // إظهار حقول الغرف والحمامات للشقة والدوبلكس والفيلا
+      if ((selectedType === 'شقة' || selectedType === 'دوبلكس' || selectedType === 'فيلا') && roomsBathroomsGroup) {
+          roomsBathroomsGroup.style.display = 'block';
+           // جعل هذه الحقول مطلوبة لهذه الأنواع (اختياري لكن موصى به)
+           roomsBathroomsGroup.querySelectorAll('input').forEach(input => input.required = true);
+
+      // إظهار حقل الطوابق للعمارة
+      } else if (selectedType === 'عمارة' && floorsGroup) {
+          floorsGroup.style.display = 'block'; // Corrected typo
+           // جعل هذا الحقل مطلوب لهذه الأنواع (اختياري لكن موصى به)
+           floorsGroup.querySelectorAll('input').forEach(input => input.required = true);
+      }
+      // إذا تم اختيار أنواع أخرى، لا تظهر حقول ديناميكية
+  }
+
+  // إضافة مستمع حدث لتغيير حقل "نوع العقار" لاستدعاء الدالة الديناميكية في نموذج تسجيل العقار
+  if (propertyTypeSelect) propertyTypeSelect.addEventListener('change', toggleDynamicFields);
+
+
+  // --- Image Preview Logic for Property Submission Form ---
+
+  // عرض معاينة للصور المختارة قبل الرفع
+  if (imageInput) {
+      imageInput.addEventListener('change', function() {
+          if (imagePreviewDiv) imagePreviewDiv.innerHTML = '';
+          const files = this.files;
+          const messageDiv = formMessageDiv; // Use the correct message div
+
+          if (files.length > 3) {
+              if (messageDiv) {
+                messageDiv.textContent = 'الحد الأقصى لعدد الصور هو 3 صور فقط.';
+                messageDiv.className = 'message error';
+              }
+              this.value = '';
+              if (imagePreviewDiv) imagePreviewDiv.innerHTML = '';
+              return;
+          } else {
+               if (messageDiv) {
+                messageDiv.textContent = '';
+                messageDiv.className = 'message';
+               }
+          }
+
+          for (let i = 0; i < files.length; i++) {
+              const file = files[i];
+              const reader = new FileReader();
+              reader.onload = function(e) {
+                  const img = document.createElement('img');
+                  img.src = e.target.result;
+                  img.alt = 'Property Image Preview';
+                  img.style.maxWidth = '100px'; // Add style for smaller previews
+                  img.style.maxHeight = '100px'; // Add style for smaller previews
+                  img.style.margin = '5px'; // Add margin
+                  if (imagePreviewDiv) imagePreviewDiv.appendChild(img);
+              }
+              reader.readAsDataURL(file);
+          }
+      });
+  }
+
+
+  // --- Form Submission Logic for Property Submission Form (using Fetch) ---
+
+  // دالة معالجة النجاح بعد إرسال نموذج تسجيل العقار (تستخدم بعد Fetch)
+  function handleFormSuccess(response) {
+    const submitButton = propertyForm ? propertyForm.querySelector('button[type="submit"]') : null;
+    const messageDiv = formMessageDiv;
+
+    if (submitButton) {
+      submitButton.disabled = false;
+      submitButton.textContent = 'إرسال بيانات العقار';
+    }
+
+    if (response && response.success) {
+      if (messageDiv) {
+        messageDiv.textContent = 'تم تسجيل عقارك بنجاح!';
+        messageDiv.className = 'message success';
+      }
+      if (propertyForm) propertyForm.reset(); // إعادة تعيين النموذج
+      if (imagePreviewDiv) imagePreviewDiv.innerHTML = ''; // مسح معاينة الصور
+      hideDynamicFields(); // إخفاء الحقول الديناميكية بعد النجاح
+
+      // إخفاء زر الإرسال وإظهار زر الإغلاق في نافذة النموذج
+      if (submitButton) submitButton.style.display = 'none';
+      if (formModalCloseBtnAfterSubmit) formModalCloseBtnAfterSubmit.style.display = 'block';
+
+      fetchAndDisplayProperties(); // إعادة تحميل قائمة العقارات لعرض العقار الجديد المضاف
+
+    } else {
+      if (messageDiv) {
+        messageDiv.textContent = 'حدث خطأ أثناء تسجيل عقارك: ' + (response && response.message ? response.message : 'خطأ غير معروف');
+        messageDiv.className = 'message error';
+      }
+
+      // إظهار زر الإغلاق في نافذة النموذج مع بقاء زر الإرسال مرئياً
+      if (formModalCloseBtnAfterSubmit) formModalCloseBtnAfterSubmit.style.display = 'block';
+    }
+  }
+
+  // دالة معالجة الفشل عند إرسال نموذج تسجيل العقار (تستخدم بعد Fetch)
+  function handleFormError(error) {
+     const submitButton = propertyForm ? propertyForm.querySelector('button[type="submit"]') : null;
+     if (submitButton) {
+       submitButton.disabled = false;
+       submitButton.textContent = 'إرسال بيانات العقار';
+     }
+
+    // لا نغلق النافذة تلقائياً عند الخطأ للسماح للمستخدم برؤية الرسالة
+    const messageDiv = formMessageDiv;
+    if (messageDiv) {
+        messageDiv.textContent = 'حدث خطأ في الاتصال بالخادم: ' + (error ? error.message : 'خطأ غير معروف');
+        messageDiv.className = 'message error';
+    }
+    // إظهار زر الإغلاق في نافذة النموذج
+    if (formModalCloseBtnAfterSubmit) formModalCloseBtnAfterSubmit.style.display = 'block';
+    console.error(error);
+  }
+
+
+  // معالجة إرسال نموذج تسجيل العقار باستخدام Fetch API
+  if (propertyForm) {
+      propertyForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const messageDiv = formMessageDiv;
+        const submitButton = this.querySelector('button[type="submit"]');
+
+        if (messageDiv) {
+          messageDiv.textContent = 'جاري إرسال بيانات العقار...';
+          messageDiv.className = 'message';
+           // Hide close button during submission
+           if (formModalCloseBtnAfterSubmit) formModalCloseBtnAfterSubmit.style.display = 'none';
+        }
+
+        if (submitButton) {
+          submitButton.disabled = true;
+          submitButton.textContent = 'جاري الإرسال...';
+        }
+
+        const formData = new FormData(this);
+        const data = {};
+        const files = [];
+        const propertyFeatures = [];
+
+        let formIsValid = true;
+
+        formData.forEach((value, key) => {
+            if (key === 'propertyFeatures[]') {
+                 propertyFeatures.push(value);
+            } else if (key !== 'files') {
+                 const inputElement = this.querySelector(`[name="${key}"]`);
+                 if(inputElement && inputElement.offsetParent !== null && inputElement.required && (value === '' || value === null)) {
+                     const labelElement = inputElement.labels && inputElement.labels[0] ? inputElement.labels[0].textContent.replace(':', '').trim() : key;
+                     if (messageDiv) {
+                         messageDiv.textContent = `الرجاء تعبئة حقل: ${labelElement}`;
+                         messageDiv.className = 'message error';
+                     }
+                     if (submitButton) {
+                       submitButton.disabled = false;
+                       submitButton.textContent = 'إرسال بيانات العقار';
+                     }
+                      // Show close button on validation error
+                     if (formModalCloseBtnAfterSubmit) formModalCloseBtnAfterSubmit.style.display = 'block';
+                     formIsValid = false;
+                     return;
+                 }
+                 data[key] = value;
+            }
+        });
+
+        if (!formIsValid) {
+            return;
+        }
+
+        const otherComponentsElement = document.getElementById('otherComponents');
+        const otherComponents = otherComponentsElement ? otherComponentsElement.value : '';
+         if (otherComponents) {
+             data.otherComponents = otherComponents;
+         }
+
+        data.propertyFeatures = propertyFeatures.join(', ');
+
+         const fileList = formData.getAll('files');
+         if (fileList.length > 3) {
+             if (messageDiv) {
+               messageDiv.textContent = 'خطأ: الحد الأقصى 3 صور فقط.';
+               messageDiv.className = 'message error';
+             }
+             if (submitButton) {
+               submitButton.disabled = false;
+               submitButton.textContent = 'إرسال بيانات العقار';
+             }
+              // Show close button on validation error
+             if (formModalCloseBtnAfterSubmit) formModalCloseBtnAfterSubmit.style.display = 'block';
+             return;
+        }
+
+        // Create a new FormData object to send via fetch
+        const fetchFormData = new FormData();
+        // Append non-file data
+        for (const key in data) {
+            fetchFormData.append(key, data[key]);
+        }
+        // Append files
+        fileList.forEach(file => {
+            if (file.size > 0) {
+                fetchFormData.append('files', file);
+            }
+        });
+
+        // Replace 'YOUR_WEB_APP_URL' with the actual URL of your deployed Google Apps Script web app
+        fetch('YOUR_WEB_APP_URL', { // Replace with your deployed web app URL for POST (property form)
+            method: 'POST',
+            body: fetchFormData
+        })
+        .then(response => {
+            if (!response.ok) {
+                 // Handle HTTP errors
+                 throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json(); // Assuming your Apps Script returns JSON response
+        })
+        .then(result => {
+            // Handle the response from the Apps Script
+            handleFormSuccess(result); // Reuse your existing success handler
+        })
+        .catch(error => {
+            // Handle errors during the fetch request
+            handleFormError(error); // Reuse your existing error handler
+        });
+
+      });
+  }
+
+
+  // --- Form Submission Logic for Request Form (using Fetch) ---
+
+  // دالة معالجة النجاح بعد إرسال نموذج الطلب (تستخدم بعد Fetch)
+  function handleRequestFormSuccess(response) {
+    const submitButton = requestForm ? requestForm.querySelector('button[type="submit"]') : null;
+    const messageDiv = requestMessageDiv;
+
+    if (submitButton) {
+      submitButton.disabled = false;
+      submitButton.textContent = 'إرسال الطلب';
+    }
+
+    if (response && response.success) {
+      if (messageDiv) {
+        messageDiv.textContent = 'تم تسجيل طلبك بنجاح! سنتواصل معك قريباً.';
+        messageDiv.className = 'message success';
+      }
+      if (requestForm) requestForm.reset(); // إعادة تعيين النموذج بعد النجاح
+
+      // إخفاء زر الإرسال وإظهار زر الإغلاق في نافذة الطلب
+      if (submitButton) submitButton.style.display = 'none';
+      if (requestModalCloseBtnAfterSubmit) requestModalCloseBtnAfterSubmit.style.display = 'block';
+
+      // يمكن إغلاق النافذة بعد فترة قصيرة تلقائياً إذا أردت
+      // setTimeout(hideRequestModal, 3000); // مثال: إغلاق بعد 3 ثوانٍ
+
+    } else {
+       if (messageDiv) {
+        messageDiv.textContent = 'حدث خطأ أثناء تسجيل الطلب: ' + (response && response.message ? response.message : 'خطأ غير معروف');
+        messageDiv.className = 'message error';
+       }
+
+      // إظهار زر الإغلاق في نافذة الطلب مع بقاء زر الإرسال مرئياً
+      if (requestModalCloseBtnAfterSubmit) requestModalCloseBtnAfterSubmit.style.display = 'block';
+    }
+  }
+
+  // دالة معالجة الفشل عند إرسال نموذج الطلب (تستخدم بعد Fetch)
+  function handleRequestFormError(error) {
+     const submitButton = requestForm ? requestForm.querySelector('button[type="submit"]') : null;
+     if (submitButton) {
+       submitButton.disabled = false;
+       submitButton.textContent = 'إرسال الطلب';
+     }
+
+    // لا نغلق النافذة تلقائياً عند الخطأ للسماح للمستخدم برؤية الرسالة
+     const messageDiv = requestMessageDiv;
+    if (messageDiv) {
+        messageDiv.textContent = 'حدث خطأ في الاتصال بالخادم: ' + (error ? error.message : 'خطأ غير معروف');
+        messageDiv.className = 'message error';
+    }
+     // إظهار زر الإغلاق في نافذة الطلب
+    if (requestModalCloseBtnAfterSubmit) requestModalCloseBtnAfterSubmit.style.display = 'block';
+    console.error(error);
+  }
+
+
+  // معالجة إرسال نموذج طلب العقار باستخدام Fetch API
+  if (requestForm) {
+      requestForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const messageDiv = requestMessageDiv;
+        const submitButton = this.querySelector('button[type="submit"]');
+
+        if (messageDiv) {
+          messageDiv.textContent = 'جاري إرسال الطلب...';
+          messageDiv.className = 'message';
+           // Hide close button during submission
+           if (requestModalCloseBtnAfterSubmit) requestModalCloseBtnAfterSubmit.style.display = 'none';
+        }
+
+        if (submitButton) {
+          submitButton.disabled = true;
+          submitButton.textContent = 'جاري الإرسال...';
+        }
+
+        const formData = new FormData(this);
+        const requestData = {};
+
+         let formIsValid = true;
+
+        // Collect all form data from the request form
+        formData.forEach((value, key) => {
+             const inputElement = this.querySelector(`[name="${key}"]`); // Use 'this' to search within the form
+             if(inputElement && inputElement.required && (value === '' || value === null)) {
+                 const labelElement = inputElement.labels && inputElement.labels[0] ? inputElement.labels[0].textContent.replace(':', '').trim() : key;
+                 if (messageDiv) {
+                     messageDiv.textContent = `الرجاء تعبئة حقل: ${labelElement}`;
+                     messageDiv.className = 'message error';
+                 }
+                 if (submitButton) {
+                     submitButton.disabled = false;
+                     submitButton.textContent = 'إرسال الطلب';
+                 }
+                 // Show close button on validation error
+                 if (requestModalCloseBtnAfterSubmit) requestModalCloseBtnAfterSubmit.style.display = 'block';
+                 formIsValid = false;
+                 return;
+             }
+             requestData[key] = value;
+        });
+
+        // إذا تم اكتشاف خطأ في التحقق، اخرج
+         if (!formIsValid) {
+            return;
+        }
+
+        // Replace 'YOUR_REQUEST_WEB_APP_URL' with the actual URL of your deployed Google Apps Script web app
+        // You might use the same web app URL and differentiate based on the request body or a parameter.
+        fetch('YOUR_WEB_APP_URL', { // Replace with your deployed web app URL for POST (request form)
+            method: 'POST',
+             headers: {
+                'Content-Type': 'application/json' // Send as JSON for easier parsing in Apps Script doPost for simple data
+            },
+            body: JSON.stringify({ type: 'request', data: requestData }) // Send data with a 'type' to differentiate in Apps Script
+        })
+        .then(response => {
+             if (!response.ok) {
+                 // Handle HTTP errors
+                 throw new Error(`HTTP error! status: ${response.status}`);
+             }
+             return response.json(); // Assuming your Apps Script returns JSON response
+        })
+        .then(result => {
+            // Handle the response from the Apps Script
+            handleRequestFormSuccess(result); // Reuse your existing success handler
+        })
+        .catch(error => {
+            // Handle errors during the fetch request
+            handleRequestFormError(error); // Reuse your existing error handler
+        });
+
+      });
+  }
+
+
+  // --- Property Listing Display Logic (using Fetch) ---
+
+  // دالة لجلب وعرض العقارات من Google Sheet باستخدام Fetch API
+  function fetchAndDisplayProperties() {
+    if (propertyListingsDiv) {
+      propertyListingsDiv.innerHTML = '<p>جاري تحميل العقارات المتاحة...</p>';
+
+       // Replace 'YOUR_WEB_APP_URL' with the actual URL of your deployed Google Apps Script web app
+       // This fetch should likely target the same web app URL but might need a parameter or
+       // be handled by a doGet function in Apps Script.
+      fetch('YOUR_WEB_APP_URL?action=getProperties') // Example: Use a query parameter
+          .then(response => {
+              if (!response.ok) {
+                   throw new Error(`HTTP error! status: ${response.status}`);
+              }
+              return response.json(); // Assuming your Apps Script returns JSON response
+          })
+          .then(response => {
+               // Use the existing display function
+              displayProperties(response);
+          })
+          .catch(error => {
+               // Use the existing error handling function
+              handleDisplayError(error);
+          });
+
+    } else {
+      console.error('Property listings div not found!');
+    }
+  }
+
+  // دالة لعرض العقارات المسترجعة
+  function displayProperties(response) {
+      if (!propertyListingsDiv) {
+          console.error('Property listings div not found for display.');
+          return;
+      }
+
+      propertyListingsDiv.innerHTML = '';
+
+      if (!response || !response.success) {
+          propertyListingsDiv.innerHTML = '<p class="message error">حدث خطأ أثناء جلب العقارات: ' + (response && response.message ? response.message : 'خطأ غير معروف') + '</p>';
+          return;
+      }
+
+      const properties = response.data;
+
+      if (!properties || properties.length === 0) {
+          propertyListingsDiv.innerHTML = '<p>لا توجد عقارات متاحة حالياً للعرض.</p>';
+          return;
+      }
+
+      properties.forEach(property => {
+          const card = document.createElement('div');
+          card.className = 'property-card';
+
+          // تحديد رابط الصورة المراد عرضها (assuming your Apps Script returns the image URL)
+          const imageUrl = property.image1 || 'https://via.placeholder.com/400x200?text=No+Image+Available&bg=e9ecef&fg=6c757d';
+
+          // عرض المميزات كقائمة أو نص
+           const featuresList = property.propertyFeatures || 'لا يوجد مميزات محددة.'; // استخدم القيمة مباشرة
+          const otherDetails = property.otherComponents || '';
+
+          // عرض البيانات الديناميكية (غرض، غرف، حمامات، طوابق) في البطاقة
+          const propertyPurpose = property.propertyPurpose || 'غير محدد'; // جلب الغرض
+          // تأكد من أن القيم ليست فارغة أو '0' قبل العرض
+          const rooms = property.numberOfRooms && property.numberOfRooms !== '0' ? `${property.numberOfRooms} غرف ` : ''; // جلب عدد الغرف
+          const bathrooms = property.numberOfBathrooms && property.numberOfBathrooms !== '0' ? `${property.numberOfBathrooms} حمامات` : ''; // جلب عدد الحمامات
+          const floors = property.numberOfFloors && property.numberOfFloors !== '0' ? `${property.numberOfFloors} طوابق` : ''; // جلب عدد الطوابق
+          // دمج الحقول الديناميكية الموجودة فقط وفصلها بـ " / "
+          const dynamicDetails = [rooms, bathrooms, floors].filter(Boolean).join(' / ');
+
+
+          // بناء محتوى البطاقة باستخدام البيانات (بما في ذلك الغرض والحقول الديناميكية)
+          const detailsHtml = `
+              ${imageUrl ? `<img src="${imageUrl}" alt="${property.propertyType || 'عقار'}">` : ''}
+              <h3>${property.propertyType || 'نوع العقار غير محدد'} (${propertyPurpose})</h3>
+              ${dynamicDetails ? `<p><strong>التفاصيل:</strong> ${dynamicDetails}</p>` : ''}
+              <p><strong>نطاق السعر:</strong> ${property.priceRange || 'غير محدد'}</p>
+              <p><strong>عمر العقار:</strong> ${property.age || 'غير محدد'}</p>
+              <p><strong>المساحة:</strong> ${property.area ? property.area + ' م²' : 'غير محدد'}</p>
+              ${property.propertyLocation ? `<p><strong>الموقع:</strong> ${property.propertyLocation}</p>` : ''}
+              ${featuresList ? `<p><strong>المميزات:</strong> ${featuresList}</p>` : ''}
+              ${otherDetails ? `<p><strong>تفاصيل إضافية:</strong> ${otherDetails}</p>` : ''}
+              `;
+
+          card.innerHTML += detailsHtml;
+
+          propertyListingsDiv.appendChild(card);
+      });
+  }
+
+  // دالة معالجة الفشل عند جلب العقارات
+  function handleDisplayError(error) {
+    if (propertyListingsDiv) {
+      propertyListingsDiv.innerHTML = '<p class="message error">حدث خطأ أثناء تحميل العقارات: ' + (error ? error.message : 'خطأ غير معروف') + '</p>';
+    }
+    console.error(error);
+  }
+
+  // جلب وعرض العقارات عند تحميل الصفحة لأول مرة
+  fetchAndDisplayProperties();
+
+}); // نهاية الدالة التي تُنفذ عند تحميل محتوى DOM
+  </script>
+
+</body>
+</html>
